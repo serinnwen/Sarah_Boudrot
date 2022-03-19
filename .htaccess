@@ -1,0 +1,50 @@
+# Copiez ce fichier dans le repertoire ou vous voulez des acces
+# specifiques/differents sous le nom .htaccess, puis modifiez son contenu.
+# Il doit etre lisible par www-data (commande unix: chmod 640 .htaccess)
+# Attention : .htaccess herite de ceux qui sont dans les repertoires parents !
+
+# Assayez de respecter cette regle, merci :
+# - www/ : acces interne seulement.
+# - www/intra/ : acces interne.
+# - www/acces/ : acces interne ou avec login
+# - www/ext/ : acces de partout
+
+
+#   Ne pas toucher ceci (mais le reste oui selon vos besoins)
+#   -------------------
+Order deny,allow
+Deny from all
+
+
+#  Permettre l'acces au repertoire par les machines indiquees uniquement
+#  ---------------------------------------------------------------------
+#    all = toutes  /  134.59.136.0/22 = iut sophia  /  none = aucune
+Allow from 134.59.136.0/22 134.59.142.0/24 10.136.128.0/17 10.0.0.0/8 172.20.0.0/14 134.59.122.0/23 134.59.124.0/22
+#Allow from all
+#Allow from none
+
+
+#  Permettre l'acces au repertoire avec un NOM / PASS du systeme
+#  ---------------------------------------------------------------------
+#    Decommenter 'AuthType CAS', 'AuthName "xxxxxxxx"', 
+#    'require valid-user' ou 'require user xxx yyy zzz' (avec les logins voulus) 
+AuthType CAS
+AuthName "Acces restreint"
+Require valid-user
+#Require user xxx yyy zzz
+#
+#  Permettre l'acces au repertoire avec d'autres NOM / PASS
+#  --------------------------------------------------------
+#    .htpasswd doit etre cree sous unix avec la commande :
+#    >  cd ; htpasswd -c ~/www/.htpasswd NOM ; chmod 640 ~/www/.htpasswd)
+#    En plus des lignes ci-dessus, decommentez aussi les lignes suivantes
+#    et remplacer votre_path par le resultat de la commande unix  pwd
+#AuthPAM_Enabled off
+#AuthUserFile /votre_path/www/.htpasswd
+
+
+#  Permission dans quel cas ?
+#  --------------------------
+#    all = necessite une machine acceptee ET le nom/mot de passe
+#    any = necessite une machine acceptee OU le nom/mot de passe
+Satisfy any

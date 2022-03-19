@@ -1,0 +1,98 @@
+/*Réinitilisation des marges intérieures extérieures des éléments du site web*/
+body {
+    background-image:url(imagefond-min.jpg);
+    background-size: cover;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    color :#dee2e2;
+    font-family:"Book Antiqua";
+    background-color: black;
+    }
+nav{
+margin: 0px;
+padding:0px;
+font-family: Roboto,sans-serif; 
+ } 
+
+/*enlever les puces du menu*/
+nav ul{
+text-decoration: none;
+list-style-type: none;
+ }
+
+nav {
+	width: 90%;
+	margin: 0 auto;
+  font-size: large;
+  border: #5f4bb8 5px inset;
+  background-color: rgb(21,21,21);
+  
+}
+a:link 
+{ 
+ text-decoration:none; /*enlever le sous-lignement*/
+ font-weight:bold;
+} 
+nav a:hover {color: #0e8b81;} 
+a{color:#c2bdbd}
+
+/*Mettre éléments de la liste sur la même ligne (float), width espacer les différents onglets */
+nav {
+text-align: center
+}
+#nav a {
+	display:inline-block;
+	margin: 0 30px;
+}
+nav li{
+float: left;
+width: 18%;
+text-align: center;
+display: inline;
+}
+nav ul::after{
+content:"";
+display:table;
+clear: both;
+}
+
+
+h1 {
+color:#0e8b81;
+font-weight : bold;
+font-stretch:expanded;
+font-size:60px;
+}
+img {
+	width: 150px;
+	height: 150px;
+	vertical-align:middle;
+}
+div {
+	margin-left: 5%;	
+}
+#qualites {
+text-align: left;
+
+}
+#qualitesliste {
+    list-style-image:url(planete.png);
+    margin-left:50px;
+    font-size: x-large;
+    }
+    
+#loisirs{
+        background:linear-gradient(#1c153f,#392d6e );
+        width: 500px;
+        margin: auto;
+        border-style: dashed;
+        border-color: #0e8b81;
+    }
+
+#nom {
+text-align: center;
+}
+h2{
+text-align: center;
+}
+
